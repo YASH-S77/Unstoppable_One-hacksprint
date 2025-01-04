@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sign Up - Parivar Care</title>
+
+  <!-- Google Fonts Import for League Spartan and Leckerli One -->
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&family=Leckerli+One&display=swap" rel="stylesheet">
+
   <style>
     /* General reset and styling */
     * {
@@ -14,7 +18,7 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'League Spartan', sans-serif;
       background: #f3f4f7;
       display: flex;
       flex-direction: column;
@@ -22,32 +26,47 @@
     }
 
     header {
-      background-color: #007BFF;
+      background-color: #4A90E2;
       padding: 20px 0;
       text-align: center;
       color: white;
       font-size: 18px;
+      position: relative;
     }
 
     .header-content {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       width: 90%;
       margin: 0 auto;
     }
 
     .header-content h1 {
-      font-size: 36px;
-      margin-left: 20px;
+      font-family: 'Leckerli One', cursive;
+      font-size: 48px;
+      color: #FFFFFF;
+      text-decoration: underline;
+      margin-left: 10px;
+    }
+
+    nav {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: flex;
     }
 
     nav a {
+      background: rgba(255, 255, 255, 0.4);
       color: white;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 18px;
       margin: 0 15px;
       text-transform: uppercase;
+      padding: 12px 20px;
+      border-radius: 50%;
+      font-family: 'Leckerli One', cursive;
     }
 
     nav a:hover {
@@ -59,15 +78,17 @@
       justify-content: center;
       align-items: center;
       padding: 40px;
+      flex-grow: 1;
     }
 
     .signup-box {
+      display: flex;
       background-color: #ffffff;
       padding: 40px;
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       width: 400px;
-      text-align: center;
+      flex-direction: column;
     }
 
     h2 {
@@ -98,11 +119,11 @@
 
     .textbox input:focus {
       outline: none;
-      border-color: #007BFF;
+      border-color: #4A90E2;
     }
 
     .btn {
-      background-color: #007BFF;
+      background-color: #4A90E2;
       color: white;
       padding: 12px 20px;
       border: none;
@@ -120,12 +141,15 @@
     footer {
       background-color: #808080; /* Grey color for footer */
       text-align: center;
-      padding: 10px 0;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      font-size: 14px;
+      padding: 30px 0;
+      font-size: 20px;
       color: white;
+      width: 100%;
+      margin-top: auto;
+    }
+
+    footer p {
+      margin: 0;
     }
 
     @media (max-width: 768px) {
@@ -174,12 +198,12 @@
   <header>
     <div class="header-content">
       <h1>Parivar Care</h1>
-      <nav>
-        <a href="signup.html">Sign Up</a>
-        <a href="pa.html">Home</a>
-        <a href="about.html">About Us</a>
-      </nav>
     </div>
+    <nav>
+      <a href="signup.html">Sign Up</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+    </nav>
   </header>
 
   <!-- Sign Up Box Section -->
@@ -188,6 +212,7 @@
       <h2>Sign Up</h2>
 
       <form action="#">
+
         <!-- Name Field -->
         <div class="textbox">
           <label for="name">Name</label>
