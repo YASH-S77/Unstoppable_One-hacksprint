@@ -31,31 +31,45 @@
       text-align: center;
       color: white;
       font-size: 18px;
+      position: relative; /* To position the elements inside it */
     }
 
     .header-content {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
       width: 90%;
       margin: 0 auto;
     }
 
-    /* Styling for the header title */
+    /* Styling for the header title (logo) */
     .header-content h1 {
       font-family: 'Leckerli One', cursive;
-      font-size: 48px; /* Increased font size for the logo */
+      font-size: 48px; /* Set logo font size */
       color: #FFFFFF;
       text-decoration: underline;
-      margin-left: 5px; /* Move logo further left */
+      margin-left: 10px; /* Small space from the left */
+    }
+
+    /* Styling for navigation links */
+    nav {
+      position: absolute; /* Position the nav links absolutely in the header */
+      bottom: 10px; /* Move nav to the bottom */
+      right: 10px; /* Move nav to the right */
+      display: flex;
     }
 
     nav a {
+      background: rgba(255, 255, 255, 0.4); /* 40% opacity with white background */
       color: white;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 18px; /* Increased font size for navigation links */
       margin: 0 15px;
       text-transform: uppercase;
+      padding: 12px 20px; /* Add padding to create rectangular boxes */
+      border-radius: 50%; /* Rounded corners */
+      font-family: 'Leckerli One', cursive;
+      display: inline-block;
     }
 
     nav a:hover {
@@ -156,6 +170,11 @@
         padding: 20px 0; /* Slightly reduced padding on mobile for better fit */
         font-size: 16px; /* Slightly reduced font size for smaller screens */
       }
+
+      nav a {
+        font-size: 14px; /* Slightly reduced font size for nav links on mobile */
+        padding: 10px 15px; /* Adjusted padding for smaller screens */
+      }
     }
   </style>
 </head>
@@ -165,12 +184,12 @@
   <header>
     <div class="header-content">
       <h1>Parivar Care</h1>
-      <nav>
-        <a href="signup.html">Sign Up</a>
-        <a href="index.html">Home</a>
-        <a href="about.html">About Us</a>
-      </nav>
     </div>
+    <nav>
+      <a href="signup.html">Sign Up</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+    </nav>
   </header>
 
   <!-- Login Box Section -->
