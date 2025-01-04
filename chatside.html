@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Chat - Parivar Care</title>
+  <style>
+    /* Reset and Basic Styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #007BFF;
+      padding: 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 36px;
+    }
+
+    .chat-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 10px;
+      margin: 0 auto;
+      max-width: 700px;
+      height: 70vh;
+      overflow-y: auto;
+    }
+
+    /* Chat Box Styles */
+    .chat-box {
+      background: #fff;
+      padding: 10px;
+      border-radius: 10px;
+      margin: 10px 0;
+      width: 100%;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+    }
+
+    /* Each Message Block */
+    .message {
+      margin: 5px 0;
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    /* Sender Styles */
+    .doctor-message {
+      background-color: #e1f5fe;
+      align-self: flex-start;
+      max-width: 80%;
+    }
+
+    .patient-message {
+      background-color: #e8f5e9;
+      align-self: flex-start;
+      max-width: 80%;
+    }
+
+    .child-message {
+      background-color: #fff3e0;
+      align-self: flex-start;
+      max-width: 80%;
+    }
+
+    /* Sent Message Styles (Right side) */
+    .sent-message {
+      background-color: #007BFF;
+      color: white;
+      align-self: flex-end;
+    }
+
+    /* Input Box Styles */
+    .input-container {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      border-top: 1px solid #ddd;
+      background-color: white;
+    }
+
+    .input-container input {
+      width: 85%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .send-btn {
+      padding: 10px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: #808080;
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      color: white;
+    }
+
+    /* Media Queries for Responsiveness */
+    @media (max-width: 768px) {
+      .chat-container {
+        padding: 5px;
+      }
+
+      .chat-box {
+        padding: 8px;
+      }
+
+      .input-container input {
+        font-size: 12px;
+      }
+
+      .send-btn {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .chat-container {
+        max-width: 100%;
+      }
+
+      .chat-box {
+        padding: 6px;
+      }
+
+      .input-container input {
+        font-size: 12px;
+      }
+
+      .send-btn {
+        font-size: 14px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Parivar Care - Chat</h1>
+  </header>
+
+  <!-- Chat Container -->
+  <div class="chat-container">
+    <!-- Doctor's Message -->
+    <div class="chat-box">
+      <div class="message doctor-message">
+        <strong>Dr. Sharma:</strong> How are you feeling today, Mrs. Doe?
+      </div>
+      <div class="message doctor-message">
+        <strong>Dr. Sharma:</strong> Remember to take your medications on time.
+      </div>
+    </div>
+
+    <!-- Patient's Message -->
+    <div class="chat-box">
+      <div class="message patient-message">
+        <strong>Jane Doe:</strong> I'm feeling a bit tired today, Dr.
+      </div>
+      <div class="message patient-message">
+        <strong>Jane Doe:</strong> I'll take the meds after lunch.
+      </div>
+    </div>
+
+    <!-- Child's Message -->
+    <div class="chat-box">
+      <div class="message child-message">
+        <strong>John (Son):</strong> Mom, did you take your pills yet? Do you need anything?
+      </div>
+    </div>
+
+    <!-- User Sent Message -->
+    <div class="chat-box">
+      <div class="message sent-message">
+        <strong>You:</strong> I’ll remind her. Thanks for checking in.
+      </div>
+    </div>
+  </div>
+
+  <!-- Input Box -->
+  <div class="input-container">
+    <input type="text" placeholder="Type a message..." id="message-input">
+    <button class="send-btn" onclick="sendMessage()">Send</button>
+  </div>
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2025 Parivar Care. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function sendMessage() {
+      let input = document.getElementById('message-input');
+      let messageText = input.value.trim();
+
+      if (messageText !== "") {
+        // Create a new message div
+        let newMessage = document.createElement('div');
+        newMessage.classList.add('chat-box');
+        newMessage.innerHTML = `<div class="message sent-message"><strong>You:</strong> ${messageText}</div>`;
+
+        // Append the message to the chat container
+        document.querySelector('.chat-container').appendChild(newMessage);
+
+        // Scroll to the bottom of the chat
+        document.querySelector('.chat-container').scrollTop = document.querySelector('.chat-container').scrollHeight;
+
+        // Clear the input box
+        input.value = "";
+      }
+    }
+  </script>
+
+</body>
+</html>
