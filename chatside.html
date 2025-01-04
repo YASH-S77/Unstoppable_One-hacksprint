@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Chat - Parivar Care</title>
+  <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet"> <!-- Link to Leckerli One Font -->
   <style>
     /* Reset and Basic Styling */
     * {
@@ -14,7 +15,7 @@
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'League Spartan', sans-serif;
       background: #f3f4f7;
       display: flex;
       flex-direction: column;
@@ -22,16 +23,95 @@
     }
 
     header {
-      background-color: #007BFF;
+      background-color: #4A90E2; /* Updated header color */
       padding: 20px;
-      text-align: center;
+      text-align: left; /* Align text to the left */
       color: white;
+      position: relative;
+      display: flex;
+      align-items: center; /* Vertically align the content */
     }
 
     header h1 {
-      font-size: 36px;
+      font-family: 'Leckerli One', cursive; /* Use the same font as in the login page */
+      font-size: 48px; /* Set the logo font size */
+      color: #FFFFFF;
+      text-decoration: underline;
+      margin-left: 10px; /* Small space from the left */
     }
 
+    /* Styling for navigation links */
+    nav {
+      position: absolute;
+      bottom: 10px; /* Move nav to the bottom */
+      right: 10px; /* Move nav to the right */
+      display: flex;
+    }
+
+    nav a {
+      background: rgba(255, 255, 255, 0.38); /* 38% opacity with white background */
+      color: white;
+      text-decoration: none;
+      font-size: 14px; /* Reduced font size */
+      margin: 0 8px; /* Reduced space between links */
+      text-transform: uppercase;
+      padding: 8px 15px; /* Reduced padding for smaller boxes */
+      font-family: 'Leckerli One', cursive;
+      display: inline-block;
+      border-radius: 0%; /* Set border radius to 0% for navigation links */
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* Flexbox layout for Profile and Chat */
+    .container {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex: 1;
+    }
+
+    /* Doctor's Profile Styling */
+    .profile-card {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 190px;
+      max-width: 300px; /* Ensure profile doesn't stretch too much */
+    }
+
+    .profile-card .image-container {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-bottom: 15px;
+    }
+
+    .profile-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-card .info-container h2 {
+      margin: 0;
+      font-size: 24px;
+      color: #333;
+    }
+
+    .profile-card .info-container p {
+      margin: 5px 0;
+      color: #555;
+    }
+
+    /* Chat Container Styles */
     .chat-container {
       display: flex;
       flex-direction: column;
@@ -42,9 +122,9 @@
       max-width: 700px;
       height: 70vh;
       overflow-y: auto;
+      position: relative;
     }
 
-    /* Chat Box Styles */
     .chat-box {
       background: #fff;
       padding: 10px;
@@ -94,44 +174,65 @@
     .input-container {
       width: 100%;
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-end; /* Align the input box to the right */
       align-items: center;
       padding: 10px;
-      border-top: 1px solid #ddd;
+      position: absolute;
+      bottom: 0;
       background-color: white;
+      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for separation */
     }
 
     .input-container input {
-      width: 85%;
-      padding: 10px;
+      width: 70%; /* Reduced length of the input box */
+      padding: 8px; /* Reduced padding */
       border: 1px solid #ddd;
       border-radius: 8px;
       font-size: 14px;
     }
 
     .send-btn {
-      padding: 10px;
+      padding: 8px;
       background-color: #007BFF;
       color: white;
       border: none;
       border-radius: 50%;
       cursor: pointer;
       font-size: 16px;
+      margin-left: 10px; /* Space between the input box and the send button */
     }
 
-    /* Footer Styling */
+    /* Footer Section */
     footer {
-      background-color: #808080;
+      background-color: #B0B0B0; /* Darker grey for footer */
       text-align: center;
-      padding: 10px;
-      font-size: 14px;
-      color: white;
+      padding: 30px 0;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      font-size: 20px;
+      color: #000000;
+    }
+
+    footer p {
+      margin: 0;
     }
 
     /* Media Queries for Responsiveness */
     @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
       .chat-container {
         padding: 5px;
+      }
+
+      .profile-card {
+        width: 90%;
+        margin-bottom: 20px;
       }
 
       .chat-box {
@@ -148,12 +249,8 @@
     }
 
     @media (max-width: 480px) {
-      .chat-container {
-        max-width: 100%;
-      }
-
-      .chat-box {
-        padding: 6px;
+      .profile-card {
+        width: 100%;
       }
 
       .input-container input {
@@ -164,57 +261,80 @@
         font-size: 14px;
       }
     }
-
   </style>
 </head>
 <body>
 
   <!-- Header Section -->
   <header>
-    <h1>Parivar Care - Chat</h1>
+    <h1>Parivar Care</h1>
+    <!-- Navigation Links -->
+    <nav>
+      <a href="signup.html">Sign Up</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+    </nav>
   </header>
 
-  <!-- Chat Container -->
-  <div class="chat-container">
-    <!-- Doctor's Message -->
-    <div class="chat-box">
-      <div class="message doctor-message">
-        <strong>Dr. Sharma:</strong> How are you feeling today, Mrs. Doe?
+  <!-- Main Container -->
+  <div class="container">
+    <!-- Doctor's Profile -->
+    <div class="profile-card">
+      <div class="image-container">
+        <img src="dlc.png" alt="Doctor's Logo">
       </div>
-      <div class="message doctor-message">
-        <strong>Dr. Sharma:</strong> Remember to take your medications on time.
-      </div>
-    </div>
-
-    <!-- Patient's Message -->
-    <div class="chat-box">
-      <div class="message patient-message">
-        <strong>Jane Doe:</strong> I'm feeling a bit tired today, Dr.
-      </div>
-      <div class="message patient-message">
-        <strong>Jane Doe:</strong> I'll take the meds after lunch.
+      <div class="info-container">
+        <h2>Dr. John Doe</h2>
+        <p><strong>Specialty:</strong> Ophthalmology</p>
+        <p><strong>Location:</strong> New York, USA</p>
+        <p><strong>Experience:</strong> 15 years in eye care and surgery</p>
+        <p><strong>Phone:</strong> (123) 456-7890</p>
+        <p><strong>Email:</strong> dr.johndoe@email.com</p>
       </div>
     </div>
 
-    <!-- Child's Message -->
-    <div class="chat-box">
-      <div class="message child-message">
-        <strong>John (Son):</strong> Mom, did you take your pills yet? Do you need anything?
+    <!-- Chat Section -->
+    <div class="chat-container">
+      <!-- Doctor's Message -->
+      <div class="chat-box">
+        <div class="message doctor-message">
+          <strong>Dr. Sharma:</strong> How are you feeling today, Mrs. Doe?
+        </div>
+        <div class="message doctor-message">
+          <strong>Dr. Sharma:</strong> Remember to take your medications on time.
+        </div>
+      </div>
+
+      <!-- Patient's Message -->
+      <div class="chat-box">
+        <div class="message patient-message">
+          <strong>Jane Doe:</strong> I'm feeling a bit tired today, Dr.
+        </div>
+        <div class="message patient-message">
+          <strong>Jane Doe:</strong> I'll take the meds after lunch.
+        </div>
+      </div>
+
+      <!-- Child's Message -->
+      <div class="chat-box">
+        <div class="message child-message">
+          <strong>John (Son):</strong> Mom, did you take your pills yet? Do you need anything?
+        </div>
+      </div>
+
+      <!-- User Sent Message -->
+      <div class="chat-box">
+        <div class="message sent-message">
+          <strong>You:</strong> I’ll remind her. Thanks for checking in.
+        </div>
       </div>
     </div>
 
-    <!-- User Sent Message -->
-    <div class="chat-box">
-      <div class="message sent-message">
-        <strong>You:</strong> I’ll remind her. Thanks for checking in.
-      </div>
+    <!-- Input Box -->
+    <div class="input-container">
+      <input type="text" placeholder="Type a message..." id="message-input">
+      <button class="send-btn" onclick="sendMessage()">Send</button>
     </div>
-  </div>
-
-  <!-- Input Box -->
-  <div class="input-container">
-    <input type="text" placeholder="Type a message..." id="message-input">
-    <button class="send-btn" onclick="sendMessage()">Send</button>
   </div>
 
   <!-- Footer Section -->
@@ -246,4 +366,4 @@
   </script>
 
 </body>
-</html>
+</html> 
