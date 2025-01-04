@@ -1,369 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Chat - Parivar Care</title>
-  <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap" rel="stylesheet"> <!-- Link to Leckerli One Font -->
-  <style>
-    /* Reset and Basic Styling */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Parivar Care - Elderly Assistance</title>
+    <link href="https://fonts.googleapis.com/css2?family=Leckerli+One&family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* General reset and styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      font-family: 'League Spartan', sans-serif;
-      background: #f3f4f7;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+        body {
+            font-family: 'League Spartan', sans-serif;
+            background: #f3f4f7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-    header {
-      background-color: #4A90E2; /* Updated header color */
-      padding: 20px;
-      text-align: left; /* Align text to the left */
-      color: white;
-      position: relative;
-      display: flex;
-      align-items: center; /* Vertically align the content */
-    }
+        /* Header Styles */
+        header {
+            background-color: #4A90E2;
+            padding: 20px;
+            text-align: left;
+            color: white;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-    header h1 {
-      font-family: 'Leckerli One', cursive; /* Use the same font as in the login page */
-      font-size: 48px; /* Set the logo font size */
-      color: #FFFFFF;
-      text-decoration: underline;
-      margin-left: 10px; /* Small space from the left */
-    }
+        header h1 {
+            font-family: 'Leckerli One', cursive;
+            font-size: 48px;
+            color: white;
+            text-decoration: underline;
+            margin-left: 10px;
+        }
 
-    /* Styling for navigation links */
-    nav {
-      position: absolute;
-      bottom: 10px; /* Move nav to the bottom */
-      right: 10px; /* Move nav to the right */
-      display: flex;
-    }
+        nav {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+        }
 
-    nav a {
-      background: rgba(255, 255, 255, 0.38); /* 38% opacity with white background */
-      color: white;
-      text-decoration: none;
-      font-size: 14px; /* Reduced font size */
-      margin: 0 8px; /* Reduced space between links */
-      text-transform: uppercase;
-      padding: 8px 15px; /* Reduced padding for smaller boxes */
-      font-family: 'Leckerli One', cursive;
-      display: inline-block;
-      border-radius: 0%; /* Set border radius to 0% for navigation links */
-    }
+        nav a {
+            background: rgba(255, 255, 255, 0.38);
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 0 8px;
+            text-transform: uppercase;
+            padding: 8px 15px;
+            font-family: 'Leckerli One', cursive;
+            display: inline-block;
+            border-radius: 0%;
+        }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-    /* Flexbox layout for Profile and Chat */
-    .container {
-      display: flex;
-      justify-content: space-between;
-      padding: 20px;
-      gap: 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-      flex: 1;
-    }
+        /* Main Layout */
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 40px 20px;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 20px auto;
+            flex: 1;
+        }
 
-    /* Doctor's Profile Styling */
-    .profile-card {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      width: 190px;
-      max-width: 300px; /* Ensure profile doesn't stretch too much */
-    }
+        /* Profile Card */
+        .profile-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 320px;
+        }
 
-    .profile-card .image-container {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      overflow: hidden;
-      margin-bottom: 15px;
-    }
+        .profile-card .image-container {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 15px;
+            border: 2px solid #4A90E2;
+        }
 
-    .profile-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+        .profile-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-    .profile-card .info-container h2 {
-      margin: 0;
-      font-size: 24px;
-      color: #333;
-    }
+        .profile-card h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+            font-weight: bold;
+        }
 
-    .profile-card .info-container p {
-      margin: 5px 0;
-      color: #555;
-    }
+        .profile-card p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
 
-    /* Chat Container Styles */
-    .chat-container {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: flex-start;
-      padding: 10px;
-      margin: 0 auto;
-      max-width: 700px;
-      height: 70vh;
-      overflow-y: auto;
-      position: relative;
-    }
+        /* Chat Box Container */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 10px;
+            margin: 0 auto;
+            max-width: 700px;
+            height: 60vh;
+            overflow-y: auto;
+            position: relative;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
 
-    .chat-box {
-      background: #fff;
-      padding: 10px;
-      border-radius: 10px;
-      margin: 10px 0;
-      width: 100%;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
-    }
+        .chat-box {
+            background: #fff;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px 0;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+        }
 
-    /* Each Message Block */
-    .message {
-      margin: 5px 0;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 14px;
-      line-height: 1.4;
-    }
+        .message {
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
 
-    /* Sender Styles */
-    .doctor-message {
-      background-color: #e1f5fe;
-      align-self: flex-start;
-      max-width: 80%;
-    }
+        .doctor-message {
+            background-color: #e1f5fe;
+            align-self: flex-start;
+            max-width: 80%;
+        }
 
-    .patient-message {
-      background-color: #e8f5e9;
-      align-self: flex-start;
-      max-width: 80%;
-    }
+        .patient-message {
+            background-color: #e8f5e9;
+            align-self: flex-start;
+            max-width: 80%;
+        }
 
-    .child-message {
-      background-color: #fff3e0;
-      align-self: flex-start;
-      max-width: 80%;
-    }
+        .sent-message {
+            background-color: #007BFF;
+            color: white;
+            align-self: flex-end;
+        }
 
-    /* Sent Message Styles (Right side) */
-    .sent-message {
-      background-color: #007BFF;
-      color: white;
-      align-self: flex-end;
-    }
+        /* Message Input Box */
+        .input-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            position: relative;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
 
-    /* Input Box Styles */
-    .input-container {
-      width: 100%;
-      display: flex;
-      justify-content: flex-end; /* Align the input box to the right */
-      align-items: center;
-      padding: 10px;
-      position: absolute;
-      bottom: 0;
-      background-color: white;
-      box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Light shadow for separation */
-    }
+        .input-container input {
+            width: 85%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+        }
 
-    .input-container input {
-      width: 70%; /* Reduced length of the input box */
-      padding: 8px; /* Reduced padding */
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      font-size: 14px;
-    }
+        .send-btn {
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 10px;
+        }
 
-    .send-btn {
-      padding: 8px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 16px;
-      margin-left: 10px; /* Space between the input box and the send button */
-    }
+        /* Footer Section */
+        footer {
+            background-color: #B0B0B0;
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+            font-size: 20px;
+            color: #000000;
+            margin-top: 20px;
+        }
 
-    /* Footer Section */
-    footer {
-      background-color: #B0B0B0; /* Darker grey for footer */
-      text-align: center;
-      padding: 30px 0;
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      font-size: 20px;
-      color: #000000;
-    }
+        footer p {
+            margin: 0;
+            font-weight: bold;
+        }
 
-    footer p {
-      margin: 0;
-    }
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
 
-    /* Media Queries for Responsiveness */
-    @media (max-width: 768px) {
-      .container {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-      }
+            .profile-card {
+                width: 100%;
+                max-width: 90%;
+            }
 
-      .chat-container {
-        padding: 5px;
-      }
+            .chat-container {
+                height: 50vh;
+            }
 
-      .profile-card {
-        width: 90%;
-        margin-bottom: 20px;
-      }
+            .input-container input {
+                width: 70%;
+            }
+        }
 
-      .chat-box {
-        padding: 8px;
-      }
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 10px;
+            }
 
-      .input-container input {
-        font-size: 12px;
-      }
+            .profile-card {
+                width: 100%;
+            }
 
-      .send-btn {
-        font-size: 14px;
-      }
-    }
+            .chat-container {
+                height: 50vh;
+            }
 
-    @media (max-width: 480px) {
-      .profile-card {
-        width: 100%;
-      }
+            .input-container input {
+                font-size: 12px;
+            }
 
-      .input-container input {
-        font-size: 12px;
-      }
+            .send-btn {
+                font-size: 14px;
+            }
+        }
 
-      .send-btn {
-        font-size: 14px;
-      }
-    }
-  </style>
+    </style>
 </head>
 <body>
 
-  <!-- Header Section -->
-  <header>
-    <h1>Parivar Care</h1>
-    <!-- Navigation Links -->
-    <nav>
-      <a href="signup.html">Sign Up</a>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-    </nav>
-  </header>
+    <!-- Header Section -->
+    <header>
+        <h1>Parivar Care</h1>
+        <!-- Navigation Links -->
+        <nav>
+            <a href="signup.html">Sign Up</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+        </nav>
+    </header>
 
-  <!-- Main Container -->
-  <div class="container">
-    <!-- Doctor's Profile -->
-    <div class="profile-card">
-      <div class="image-container">
-        <img src="dlc.png" alt="Doctor's Logo">
-      </div>
-      <div class="info-container">
-        <h2>Dr. John Doe</h2>
-        <p><strong>Specialty:</strong> Ophthalmology</p>
-        <p><strong>Location:</strong> New York, USA</p>
-        <p><strong>Experience:</strong> 15 years in eye care and surgery</p>
-        <p><strong>Phone:</strong> (123) 456-7890</p>
-        <p><strong>Email:</strong> dr.johndoe@email.com</p>
-      </div>
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Doctor's Profile -->
+        <div class="profile-card">
+            <div class="image-container">
+                <img src="dlc.png" alt="Doctor's Logo">
+            </div>
+            <h2>Dr. John Doe</h2>
+            <p><strong>Specialty:</strong> Ophthalmology</p>
+            <p><strong>Location:</strong> New York, USA</p>
+            <p><strong>Experience:</strong> 15 years in eye care and surgery</p>
+            <p><strong>Phone:</strong> (123) 456-7890</p>
+            <p><strong>Email:</strong> dr.johndoe@email.com</p>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="chat-container">
+            <!-- Doctor's Messages -->
+            <div class="chat-box">
+                <div class="message doctor-message">
+                    <strong>Dr. Sharma:</strong> How are you feeling today, Mrs. Doe?
+                </div>
+                <div class="message doctor-message">
+                    <strong>Dr. Sharma:</strong> Remember to take your medications on time.
+                </div>
+            </div>
+
+            <!-- Patient's Messages -->
+            <div class="chat-box">
+                <div class="message patient-message">
+                    <strong>Jane Doe:</strong> I'm feeling a bit tired today, Dr.
+                </div>
+                <div class="message patient-message">
+                    <strong>Jane Doe:</strong> I'll take the meds after lunch.
+                </div>
+            </div>
+
+            <!-- Sent Message -->
+            <div class="chat-box">
+                <div class="message sent-message">
+                    <strong>You:</strong> I’ll remind her. Thanks for checking in.
+                </div>
+            </div>
+
+            <!-- Input Box (newly placed) -->
+            <div class="chat-box">
+                <div class="input-container">
+                    <input type="text" placeholder="Type a message..." id="message-input">
+                    <button class="send-btn" onclick="sendMessage()">Send</button>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <!-- Chat Section -->
-    <div class="chat-container">
-      <!-- Doctor's Message -->
-      <div class="chat-box">
-        <div class="message doctor-message">
-          <strong>Dr. Sharma:</strong> How are you feeling today, Mrs. Doe?
-        </div>
-        <div class="message doctor-message">
-          <strong>Dr. Sharma:</strong> Remember to take your medications on time.
-        </div>
-      </div>
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 Parivar Care. All rights reserved.</p>
+    </footer>
 
-      <!-- Patient's Message -->
-      <div class="chat-box">
-        <div class="message patient-message">
-          <strong>Jane Doe:</strong> I'm feeling a bit tired today, Dr.
-        </div>
-        <div class="message patient-message">
-          <strong>Jane Doe:</strong> I'll take the meds after lunch.
-        </div>
-      </div>
+    <script>
+        function sendMessage() {
+            let input = document.getElementById('message-input');
+            let messageText = input.value.trim();
 
-      <!-- Child's Message -->
-      <div class="chat-box">
-        <div class="message child-message">
-          <strong>John (Son):</strong> Mom, did you take your pills yet? Do you need anything?
-        </div>
-      </div>
+            if (messageText !== "") {
+                // Create a new message div
+                let newMessage = document.createElement('div');
+                newMessage.classList.add('chat-box');
+                newMessage.innerHTML = `<div class="message sent-message"><strong>You:</strong> ${messageText}</div>`;
 
-      <!-- User Sent Message -->
-      <div class="chat-box">
-        <div class="message sent-message">
-          <strong>You:</strong> I’ll remind her. Thanks for checking in.
-        </div>
-      </div>
-    </div>
+                // Append the message to the chat container
+                document.querySelector('.chat-container').appendChild(newMessage);
 
-    <!-- Input Box -->
-    <div class="input-container">
-      <input type="text" placeholder="Type a message..." id="message-input">
-      <button class="send-btn" onclick="sendMessage()">Send</button>
-    </div>
-  </div>
+                // Scroll to the bottom of the chat
+                document.querySelector('.chat-container').scrollTop = document.querySelector('.chat-container').scrollHeight;
 
-  <!-- Footer Section -->
-  <footer>
-    <p>&copy; 2025 Parivar Care. All rights reserved.</p>
-  </footer>
-
-  <script>
-    function sendMessage() {
-      let input = document.getElementById('message-input');
-      let messageText = input.value.trim();
-
-      if (messageText !== "") {
-        // Create a new message div
-        let newMessage = document.createElement('div');
-        newMessage.classList.add('chat-box');
-        newMessage.innerHTML = `<div class="message sent-message"><strong>You:</strong> ${messageText}</div>`;
-
-        // Append the message to the chat container
-        document.querySelector('.chat-container').appendChild(newMessage);
-
-        // Scroll to the bottom of the chat
-        document.querySelector('.chat-container').scrollTop = document.querySelector('.chat-container').scrollHeight;
-
-        // Clear the input box
-        input.value = "";
-      }
-    }
-  </script>
+                // Clear the input box
+                input.value = "";
+            }
+        }
+    </script>
 
 </body>
-</html> 
+</html>
