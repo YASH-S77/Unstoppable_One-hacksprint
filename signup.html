@@ -5,7 +5,168 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sign Up - Parivar Care</title>
-  <link rel="stylesheet" href="signup.css">
+  <style>
+    /* General reset and styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f4f7;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensures the body stretches to the full height of the viewport */
+    }
+
+    header {
+      background-color: #007BFF;
+      padding: 20px 0;
+      text-align: center;
+      color: white;
+      font-size: 18px;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    .header-content h1 {
+      font-size: 36px;
+      margin-left: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      margin: 0 15px;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .signup-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+    }
+
+    .signup-box {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 400px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .textbox {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .textbox label {
+      font-size: 14px;
+      color: #555;
+      display: block;
+    }
+
+    .textbox input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+    }
+
+    .textbox input:focus {
+      outline: none;
+      border-color: #007BFF;
+    }
+
+    .btn {
+      background-color: #007BFF;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      width: 100%;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    /* Footer Section */
+    footer {
+      background-color: #808080; /* Grey color for footer */
+      text-align: center;
+      padding: 10px 0;
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      font-size: 14px;
+      color: white;
+    }
+
+    @media (max-width: 768px) {
+      .signup-box {
+        width: 90%;
+        padding: 30px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .textbox input {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .header-content h1 {
+        font-size: 28px;
+      }
+
+      nav a {
+        font-size: 12px;
+        margin: 0 8px;
+      }
+
+      .signup-box {
+        width: 95%;
+        padding: 20px;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .textbox input {
+        font-size: 12px;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -15,7 +176,7 @@
       <h1>Parivar Care</h1>
       <nav>
         <a href="signup.html">Sign Up</a>
-        <a href="Parivar.html">Home</a>
+        <a href="pa.html">Home</a>
         <a href="about.html">About Us</a>
       </nav>
     </div>
