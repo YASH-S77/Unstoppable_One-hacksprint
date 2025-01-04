@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Connecting Video Call</title>
+
+  <!-- Google Fonts Import -->
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* General reset and styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'League Spartan', sans-serif;
+      background: #1e1e1e; /* Dark background for the video call */
+      color: white;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Full-screen overlay */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      z-index: 1000;
+    }
+
+    .overlay h1 {
+      font-size: 48px;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    /* Spinning circle animation */
+    .spinner {
+      border: 8px solid #f3f3f3; /* Light color */
+      border-top: 8px solid #3498db; /* Blue color for the spinning top */
+      border-radius: 50%;
+      width: 100px;
+      height: 100px;
+      animation: spin 2s linear infinite;
+    }
+
+    /* Spinning animation keyframes */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Button style for canceling the call */
+    .cancel-btn {
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .cancel-btn:hover {
+      background-color: #c0392b;
+    }
+
+    /* To make the entire layout responsive */
+    @media (max-width: 768px) {
+      .overlay h1 {
+        font-size: 32px;
+      }
+
+      .spinner {
+        width: 80px;
+        height: 80px;
+      }
+
+      .cancel-btn {
+        padding: 10px 25px;
+        font-size: 16px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Video Call Connecting Overlay -->
+  <div class="overlay">
+    <h1>Connecting...</h1>
+    <div class="spinner"></div>
+    <button class="cancel-btn" onclick="cancelCall()">Cancel Call</button>
+  </div>
+
+  <script>
+    // Function to simulate canceling the call and redirecting
+    function cancelCall() {
+      window.location.href = 'afterlogin.html'; // Redirect to afterlogin.html
+    }
+  </script>
+
+</body>
+</html>
