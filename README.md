@@ -21,3 +21,7 @@ accesses their information. By bridging the gap between patients, families, and 
 creates a supportive environment that prioritizes the well-being of all users. Unlike other platforms that
 provide only one solution at a time, our app brings all these essential features together into one
 comprehensive platform
+
+Utilizing data analytics to assess and monitor the prevalence of diseases within a city, enabling informed
+decision-making for timely interventions and medical operations to address public health needs effectively.
+Using Data Visuliztion tools for the same 
